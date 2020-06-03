@@ -1,0 +1,16 @@
+@import "../styles/base";
+
+.about {
+  @include gradient($white);
+
+  h1 {
+    margin: 0 1rem;
+  }
+
+  article {
+    margin: 0 1rem;
+    p {
+      overflow: hidden;
+    }
+  }
+}

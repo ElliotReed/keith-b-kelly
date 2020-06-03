@@ -1,0 +1,15 @@
+@import "../../styles/base";
+
+.nav {
+  ul {
+    padding: 0;
+    li {
+      text-align: end;
+      a {
+        @include paddingBox;
+        display: block;
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "typography";
+@import "colors";
+@import "mixins";
+
+/* sizes */
+$margin: 1rem;
+$padding: 1rem;
+
+// speed
+$duration: 0.382s;
+
+//factors
+$large: 0.618;
+$small: 0.382;
+$largePercent: 61.8%;
+$smallPercent: 38.2%;
+
+$border: 1px solid $secondary;
+$borderRadius: 0.38em;
