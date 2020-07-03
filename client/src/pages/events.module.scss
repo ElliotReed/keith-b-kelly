@@ -1,0 +1,32 @@
+@import "../styles/base";
+
+.page-header {
+  color: $primary;
+}
+
+.event-card {
+  color: $neutral;
+  border-bottom: 1px solid $neutral;
+  margin-bottom: $margin;
+
+  a {
+    text-decoration: underline;
+  }
+
+  iframe {
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  color: $primary;
+}

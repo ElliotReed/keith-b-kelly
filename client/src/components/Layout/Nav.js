@@ -8,25 +8,39 @@ const Nav = ({ background }) => (
   <nav className={background ? style.backgroundNav : style.nav}>
     <ul>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/about" activeClassName={style.active}>
+          About
+        </Link>
       </li>
       <li>
-        <Link to="/contact">Booking/Lessons</Link>
+        <Link to="/contact" activeClassName={style.active}>
+          Contact
+        </Link>
       </li>
       <li>
-        <Link to="/events">Upcoming Gigs</Link>
+        <Link to="/events" activeClassName={style.active}>
+          Events
+        </Link>
       </li>
       <li>
-        <Link to="/listen">Listen</Link>
+        <Link to="/listen" activeClassName={style.active}>
+          Listen
+        </Link>
       </li>
       <li>
-        <Link to="/news">News</Link>
+        <Link to="/news" activeClassName={style.active}>
+          News
+        </Link>
       </li>
       <li>
-        <Link to="/research">Research/Education</Link>
+        <Link to="/research" activeClassName={style.active}>
+          Research
+        </Link>
       </li>
       <li>
-        <Link to="/store">Purchase Music</Link>
+        <Link to="/store" activeClassName={style.active}>
+          Store
+        </Link>
       </li>
     </ul>
   </nav>

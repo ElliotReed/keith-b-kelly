@@ -1,7 +1,14 @@
 /* colors, sass */
 $black: #222222;
 $white: #fdfdfd;
-$nuetral: #ccc;
-$primary: #86c3be;
-$secondary: #382e31;
+$neutral: #cdcdcd;
+$primary: #86c3c0;
+$secondary: #2c2c2c;
 $tertiary: #e4ddcd;
+
+$text_dark: #2c2c2c;
+$text_light: $white;
+
+$errorColor: #442222;
+$warningColor: #cccc88;
+$successColor: #224422;

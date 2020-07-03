@@ -1,16 +1,16 @@
 @import "../../styles/base.scss";
 
-.header {
-  margin: $margin;
+.form-wrapper {
+  // margin: $margin;
   width: 100%;
-  @include boxShadow;
+  // @include boxShadow;
   border-radius: $borderRadius;
-  @include gradient($lightShades);
-  padding: $padding;
-  color: $secondary;
+  // @include gradient($neutral);
+  // padding: $padding;
+  color: $neutral;
 
   & h1 {
-    margin: $margin 0;
+    margin: 0 0 $margin 0;
     font-weight: bold;
     color: $primary;
   }
@@ -21,8 +21,10 @@ form {
     display: block;
     padding: $padding 0 0 0;
 
-    &::after {
-      content: ":";
+    & span {
+      &::after {
+        content: ":";
+      }
     }
   }
 
@@ -33,28 +35,30 @@ form {
     width: 100%;
     height: 1em;
     border-radius: $borderRadius;
-    background-color: lighten($lightShades, 10);
+    background-color: $white;
     padding: $padding;
     outline: none;
-    box-shadow: 1px 1px 2px $secondary inset;
+    // box-shadow: 1px 1px 2px $secondary inset;
 
     &:focus,
     :active {
       // border: 1px solid;
-      box-shadow: 0 0 3px rgba($secondary, 0.5), 1px 1px 2px $secondary inset;
+      // box-shadow: 0 0 3px rgba($secondary, 0.5), 1px 1px 2px $secondary inset;
     }
 
     &[type="submit"] {
+      border: none;
       height: 3em;
       margin-top: $margin;
-      @include gradient($primary);
-      color: $lightShades;
-      text-shadow: 2px 2px 0px darken($lightShades, 60);
-      box-shadow: 4px 4px 2px lighten($primary, 20) inset, 4px 4px 2px darken($primary, 20);
+      // @include gradient($primary);
+      background-color: $primary;
+      color: $black;
+      // text-shadow: 2px 2px 0px darken($neutral, 60);
+      // box-shadow: 4px 4px 2px lighten($primary, 20) inset, 4px 4px 2px darken($primary, 20);
 
       &:hover,
       :focus {
-        @include gradient(darken($primary, 3));
+        @include gradient(darken($primary, 6));
         cursor: pointer;
       }
 
@@ -74,7 +78,7 @@ form {
   0%,
   100% {
     color: $secondary;
-    background: lighten($lightShades, 10);
+    background: $white;
   }
 }
 

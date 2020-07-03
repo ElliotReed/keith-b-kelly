@@ -2,18 +2,23 @@
 @import "colors";
 @import "mixins";
 
+// devices
+$tablet: 768px;
+$desktop: 1080px;
+
 /* sizes */
 $margin: 1rem;
 $padding: 1rem;
 
 // speed
-$duration: 0.382s;
+$duration: 0.3s;
 
 //factors
+$goldenRatio: 1.618;
 $large: 0.618;
 $small: 0.382;
 $largePercent: 61.8%;
 $smallPercent: 38.2%;
 
 $border: 1px solid $secondary;
-$borderRadius: 0.38em;
+$borderRadius: 1rem * $small * $small;

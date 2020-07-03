@@ -1,0 +1,22 @@
+{
+  "website": "keithbkelly.com",
+  "serverEmail": {
+    "host": "mail.keithbkelly.com",
+    "email": "server@keithbkelly.com",
+    "password": "k3ithbk3lly",
+    "destination": "keithbkelly@gmail.com"
+  },
+  "templateOptions": {
+    "text": "",
+    "title": "Keith B Kelly",
+    "preheaderText": "",
+    "heroImage": "https://elliotreed.net/icons/icon-96x96.png",
+    "footerText": "\u00A9 Keith B Kelly",
+    "brand": "keithbkelly.com",
+    "siteURL": "https://keithbkelly.com",
+    "bgcolor": "#222222",
+    "brandColor": "86c3c0",
+    "textColor": "#cdcdcd",
+    "lightColor": "#fdfdfd"
+  }
+}

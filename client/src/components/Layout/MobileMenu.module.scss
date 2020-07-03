@@ -13,7 +13,7 @@
   transform: translate3d(100vw, -61.8vh, 0);
   height: 100%;
   width: 100%;
-  transition: all $duration ease-in-out;
+  transition: all 0.2s ease-in;
   background-color: $primary;
   overflow: hidden;
   z-index: -1;
@@ -22,7 +22,7 @@
 .offscreen-nav-wrapper {
   opacity: 0;
   z-index: 1;
-  transition: all $duration * 2 ease-in-out;
+  transition: all $duration * 2 ease-in;
   background-color: $primary;
 }
 
@@ -30,7 +30,17 @@
   transform: translate3d(0, 0, 0);
   z-index: 1;
 
+  &.off-canvas-container {
+    transition: all 0.25s ease-out;
+  }
+
   & .offscreen-nav-wrapper {
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .off-canvas-container {
+    display: none;
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 
+import LoadingSpinner from "../shared/LoadingSpinner"
 import styles from "./ContactForm.module.scss"
 
 const ContactForm = ({ type }) => {
@@ -12,11 +13,10 @@ const ContactForm = ({ type }) => {
   async function handleSubmit(e) {
     setSubmitted(true)
     e.preventDefault()
-    const response = await sendEmail("https://api.elliotreed.net//sendMessage", {
+    const response = await sendEmail("https://keithbkelly.com/email/contact", {
       name: name,
       email: email,
       message: message,
-      type: type,
     })
 
     if (response.mail === "success") {
@@ -36,17 +36,22 @@ const ContactForm = ({ type }) => {
   }
 
   return (
-    <section className={styles.header}>
+    <section className={styles.formWrapper}>
       <h1>Contact</h1>
       <hr></hr>
-      {submitted && !success && <div>Sending...</div>}
+      {submitted && !success && (
+        <>
+          <div>Sending...</div>
+          <LoadingSpinner />
+        </>
+      )}
       {submitted && success && <div>Your message has been sent!</div>}
       {!submitted && !success && (
         <>
           <p>Send me a message!</p>
           <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="name">Name</label>
+            <label htmlFor="name">
+              <span>Name</span>
               <input
                 type="text"
                 name="name"
@@ -55,9 +60,9 @@ const ContactForm = ({ type }) => {
                 onChange={e => setName(e.target.value)}
                 required
               />
-            </div>
-            <div>
-              <label htmlFor="email">Email</label>
+            </label>
+            <label htmlFor="email">
+              <span>Email</span>
               <input
                 type="email"
                 name="email"
@@ -66,9 +71,9 @@ const ContactForm = ({ type }) => {
                 onChange={e => setEmail(e.target.value)}
                 required
               />
-            </div>
-            <div>
-              <label htmlFor="message">Message</label>
+            </label>
+            <label htmlFor="message">
+              <span>Message</span>
               <textarea
                 type="text"
                 name="message"
@@ -77,7 +82,7 @@ const ContactForm = ({ type }) => {
                 onChange={e => setMessage(e.target.value)}
                 required
               />
-            </div>
+            </label>
             <input type="submit" value="Send Message" />
           </form>
         </>

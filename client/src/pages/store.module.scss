@@ -1,0 +1,47 @@
+@import "../styles/base";
+
+.product-list {
+  margin: 0;
+  padding: 0;
+}
+
+.list-item {
+  border-bottom: 1px solid $neutral;
+
+  p {
+    color: $neutral;
+  }
+  p:first-child {
+    color: $neutral;
+    margin: $margin 0;
+  }
+  p:last-child {
+    white-space: pre-wrap;
+  }
+
+  h3 {
+    margin: $margin 0;
+    color: $primary;
+  }
+  img {
+    width: 100%;
+    display: block;
+    margin-bottom: $margin;
+  }
+
+  a {
+    display: inline-block;
+    width: 100%;
+    border-radius: $borderRadius;
+    color: $secondary;
+    background-color: $primary;
+    @include paddingBox;
+    text-align: center;
+  }
+
+  div {
+    // width: 100% * $large;
+    // margin-right: $margin;
+    // float: left;
+  }
+}

@@ -1,16 +1,39 @@
 @import "../styles/base";
 
 .about {
-  @include gradient($white);
+  color: $neutral;
+  background-color: $secondary;
+  padding: $padding 0;
 
   h1 {
-    margin: 0 1rem;
+    margin: 0 $margin $margin;
+    color: inherit;
   }
 
   article {
-    margin: 0 1rem;
-    p {
-      overflow: hidden;
-    }
+    margin: 1rem;
+    position: relative;
+  }
+}
+
+.header {
+  img {
+    box-shadow: 0px 0px 3px $neutral;
+  }
+  cite {
+    display: block;
+    width: 100%;
+    padding-right: $margin;
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .header {
+    margin-left: $margin;
+    margin-right: $margin / $large;
+    float: left;
+    min-width: $smallPercent;
+    // max-width: $smallPercent;
   }
 }
