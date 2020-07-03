@@ -2,8 +2,6 @@
   "website": "keithbkelly.com",
   "serverEmail": {
     "host": "mail.keithbkelly.com",
-    "email": "server@keithbkelly.com",
-    "password": "k3ithbk3lly",
     "destination": "keithbkelly@gmail.com"
   },
   "templateOptions": {

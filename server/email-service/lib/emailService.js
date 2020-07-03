@@ -60,7 +60,8 @@ class EmailService {
 				</p>
 			</td>
 			</tr>
-		`;2
+		`;
+		2;
 
 		templateEngine.setContent(content);
 
@@ -86,8 +87,8 @@ class EmailService {
 			port: 465,
 			secure: true, // true for 465, false for other ports
 			auth: {
-				user: config.serverEmail.email,
-				pass: config.serverEmail.password,
+				user: process.env.MAIL_USER,
+				pass: process.env.MAIL_PASSWORD,
 			},
 		});
 		// send mail with defined transport object
