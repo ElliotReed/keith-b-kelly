@@ -1,12 +1,12 @@
 'use strict';
 const nodemailer = require('nodemailer');
-const config = require('../config.json');
+const config = require('../config/config.json');
 const TemplateEngine = require('../templates');
 
 class EmailService {
 	constructor() {
 		this.from = `${config.website} <${config.serverEmail.email}>`;
-		this.to = config.serverEmail.destination;
+		this.to = process.env !== 'production' ? 'elliot_dev@elliotreed.net' : config.serverEmail.destination;
 	}
 
 	sendContactMessage(name, email, message) {
@@ -61,7 +61,6 @@ class EmailService {
 			</td>
 			</tr>
 		`;
-		2;
 
 		templateEngine.setContent(content);
 
@@ -87,8 +86,8 @@ class EmailService {
 			port: 465,
 			secure: true, // true for 465, false for other ports
 			auth: {
-				user: process.env.MAIL_USER,
-				pass: process.env.MAIL_PASSWORD,
+				user: config.serverEmail.user,
+				pass: config.serverEmail.password,
 			},
 		});
 		// send mail with defined transport object

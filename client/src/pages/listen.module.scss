@@ -1,5 +1,5 @@
-@import "../styles/base";
+@use "../styles/abstracts";
 
 .home {
-  color: $neutral;
+  color: abstracts.$neutral;
 }

@@ -1,16 +1,6 @@
-@import "../styles/base";
+@use "../styles/abstracts";
 
-.main-image {
-  height: 100%;
-  overflow: hidden;
-}
-
-@media screen and (min-width: 768px) {
-  .main-image {
-    max-height: 100vh;
-  }
-}
-
+// placeholder file, currently unused
 .home {
-  color: $neutral;
+  color: abstracts.$neutral;
 }

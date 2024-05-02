@@ -1,7 +1,8 @@
-@import "../styles/base";
+@use "../styles/abstracts";
 
 .research-card {
-  color: $neutral;
+  color: abstracts.$neutral;
+
   a {
     text-decoration: underline;
   }

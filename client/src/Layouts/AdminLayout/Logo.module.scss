@@ -1,0 +1,9 @@
+@use "../../styles/abstracts";
+
+.logo {
+  a {
+    font-size: 1.618rem;
+    color: abstracts.$black;
+    text-shadow: -1px -1px 0 abstracts.$primary, 1px -1px 0 abstracts.$primary, -1px 1px 0 abstracts.$primary, 1px 1px 0 abstracts.$primary;
+  }
+}

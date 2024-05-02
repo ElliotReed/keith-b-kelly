@@ -1,0 +1,49 @@
+@use "../../styles/abstracts";
+
+.nav {
+  ul {
+    padding: 0;
+
+    li {
+      text-align: end;
+
+      a {
+        @include abstracts.paddingBox;
+        display: block;
+        color: abstracts.$white;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: abstracts.$tablet) {
+  .nav {
+    ul {
+      display: flex;
+
+      li {
+        a {
+          color: abstracts.$neutral;
+          padding: 0;
+          margin-right: abstracts.$margin;
+
+          &:hover {
+            color: abstracts.$primary;
+          }
+
+          &.active {
+            color: abstracts.$primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.background-nav {
+  display: block;
+}
+
+.active {
+  font-size: large;
+}

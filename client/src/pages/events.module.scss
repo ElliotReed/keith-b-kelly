@@ -1,13 +1,13 @@
-@import "../styles/base";
+@use "../styles/abstracts";
 
 .page-header {
-  color: $primary;
+  color: abstracts.$primary;
 }
 
 .event-card {
-  color: $neutral;
-  border-bottom: 1px solid $neutral;
-  margin-bottom: $margin;
+  color: abstracts.$neutral;
+  border-bottom: 1px solid abstracts.$neutral;
+  margin-bottom: abstracts.$margin;
 
   a {
     text-decoration: underline;
@@ -28,5 +28,5 @@
 }
 
 .name {
-  color: $primary;
+  color: abstracts.$primary;
 }

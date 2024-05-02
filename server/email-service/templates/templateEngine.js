@@ -1,5 +1,5 @@
 'use strict';
-const config = require('../config.json');
+const config = require('../config/config.json');
 
 class TemplateEngine {
 	constructor() {
@@ -292,15 +292,13 @@ class TemplateEngine {
             style="height: auto;"
             class="g-img">
         </td>`
-				: null
+				: ''
 		}
         <td>
-          <p style="height: auto; padding: 32px 0 0 0; font-family: sans-serif; font-size: 36px; line-height: 96px; color: ${
+          <p style="color: ${
 				this.brandColor
-			};">
-            <span style="font-weight: bold; text-transform: uppercase;">Keith B Kelly</span> <span style="font-size: 24px; font-style: italic; text-transform: lowercase">${
-				this.type
-			}</span>
+			}; height: auto; padding: 32px 0 0 0; font-family: sans-serif; font-size: 36px; line-height: 96px;">
+            <span style="font-weight: bold; text-transform: uppercase;">${this.templateOptions.title}</span>
           </p>
         </td>
       </tr>

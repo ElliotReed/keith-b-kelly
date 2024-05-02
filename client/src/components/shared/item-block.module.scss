@@ -1,11 +1,11 @@
-@import "../../styles/base";
+@use "../../styles/abstracts";
 
 .secondary {
-  background-color: $secondary;
+  background-color: abstracts.$secondary;
 }
 
 .primary {
-  background-color: $primary;
+  background-color: abstracts.$primary;
 }
 
 .padded-container {

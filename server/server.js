@@ -1,18 +1,131 @@
 require('dotenv/config');
 const express = require('express');
 const { check, validationResult } = require('express-validator');
+const cookieParser = require('cookie-parser');
+const { verify } = require('jsonwebtoken');
+const { hash, compare } = require('bcryptjs');
 const db = require('./models');
 const { Op } = require('sequelize');
+const cors = require('cors');
 const moment = require('moment');
 const EmailService = require('./email-service');
+const { createAccessToken, createRefreshToken, sendAccessToken, sendRefreshToken } = require('./utils/tokens');
+const { isAuth } = require('./utils/isAuth');
 
 const port = process.env.PORT;
+const corsOptions = {
+	origin: process.env === 'production' ? 'https://keithbkelly.com' : `http://localhost:8000`,
+	credentials: true,
+};
 
 const app = express();
 
+app.use(cors(corsOptions));
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+app.post('/admin/register', async (req, res) => {
+	const email = 'keithbkelly@gmail.com';
+	const password = 'maulofamerica';
+
+	try {
+		const user = await db.user.findOne({
+			where: {
+				email: { [Op.eq]: email },
+			},
+		});
+
+		if (user) throw new Error('User already exists');
+		const hashedPassword = await hash(password, 10);
+		const newUser = await db.user.create({ email: email, password: hashedPassword });
+		res.status(201).send({ user: newUser });
+	} catch (err) {
+		res.status(409).send({ error: err.message });
+	}
+});
+
+app.post('/admin/login', async (req, res) => {
+	console.log(req.body);
+	const { email, password } = req.body;
+
+	try {
+		const user = await db.user.findOne({
+			where: {
+				email: { [Op.eq]: email },
+			},
+		});
+
+		if (!user) throw new Error('User does not exist');
+		const valid = await compare(password, user.password);
+
+		if (!valid) throw new Error('Password is not correct');
+
+		const accessToken = createAccessToken(user.id);
+		const refreshToken = createRefreshToken(user.id);
+
+		user.refreshToken = refreshToken;
+		user.save();
+
+		sendRefreshToken(res, refreshToken);
+		sendAccessToken(req, res, accessToken);
+	} catch (err) {
+		res.status(501).send({ error: err.message });
+	}
+});
+
+app.post('/admin/logout', (_req, res) => {
+	res.clearCookie('refreshToken', { path: '/admin/refresh_token' });
+	res.send({ message: 'Logged out' });
+});
+
+app.post('/admin/protected', async (req, res) => {
+	try {
+		const userId = isAuth(req);
+		if (userId !== null) {
+			res.send({
+				data: 'this is protected data',
+			});
+		}
+	} catch (err) {
+		res.status(501).send({ error: err.message });
+	}
+});
+
+app.post('/admin/refresh_token', async (req, res) => {
+	const token = req.cookies.refreshToken;
+
+	if (!token) return res.send({ accessToken: '' });
+
+	let payload = null;
+
+	try {
+		payload = verify(token, process.env.REFRESH_TOKEN_SECRET);
+	} catch (err) {
+		res.status(501).send({ accessToken: '' });
+	}
+
+	const user = await db.user.findOne({
+		where: {
+			id: { [Op.eq]: payload.userId },
+		},
+	});
+
+	if (!user) return res.send({ accessToken: '' });
+	if (user.refreshToken !== token) {
+		return res.send({ accessToken: '' });
+	}
+
+	const accessToken = createAccessToken(user.id);
+	const refreshToken = createRefreshToken(user.id);
+
+	user.refreshToken = refreshToken;
+	user.save();
+
+	sendRefreshToken(res, refreshToken);
+	sendAccessToken(req, res, accessToken);
+});
 
 app.post(
 	'/email/contact',

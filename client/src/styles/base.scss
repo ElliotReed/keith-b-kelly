@@ -1,24 +1,89 @@
-@import "typography";
-@import "colors";
-@import "mixins";
+@use "abstracts";
+@use "typography";
 
-// devices
-$tablet: 768px;
-$desktop: 1080px;
+/* #region Variables */
+:root {
+  /* animations */
+  --softIn: softIn 0.33s ease-in;
+}
 
-/* sizes */
-$margin: 1rem;
-$padding: 1rem;
+/* #endregion Variables */
+html {
+  box-sizing: border-box;
+  font-size: calc(15px + .390625vw);
+}
 
-// speed
-$duration: 0.3s;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
-//factors
-$goldenRatio: 1.618;
-$large: 0.618;
-$small: 0.382;
-$largePercent: 61.8%;
-$smallPercent: 38.2%;
+body {
+  font-family: typography.$fontStack;
+  line-height: 1.618rem;
+  background-color: abstracts.$black;
+  color: abstracts.$neutral;
+  min-height: 100vh;
+  min-width: 320px;
+}
 
-$border: 1px solid $secondary;
-$borderRadius: 1rem * $small * $small;
+h1 {
+  font-size: 2.075rem;
+  line-height: 3.334rem;
+}
+
+h2 {
+  font-size: 1.725rem;
+  line-height: 2.791rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2.427rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 2.023rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+  line-height: 1.78rem;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.618rem;
+}
+
+a {
+  text-decoration: none;
+  color: abstracts.$primary;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+cite {
+  font-size: 0.618rem;
+}
+
+@keyframes softIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

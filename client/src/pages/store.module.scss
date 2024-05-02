@@ -1,4 +1,4 @@
-@import "../styles/base";
+@use "../styles/abstracts";
 
 .product-list {
   margin: 0;
@@ -6,42 +6,49 @@
 }
 
 .list-item {
-  border-bottom: 1px solid $neutral;
-
-  p {
-    color: $neutral;
-  }
-  p:first-child {
-    color: $neutral;
-    margin: $margin 0;
-  }
-  p:last-child {
-    white-space: pre-wrap;
-  }
-
   h3 {
-    margin: $margin 0;
-    color: $primary;
-  }
-  img {
-    width: 100%;
-    display: block;
-    margin-bottom: $margin;
+    color: abstracts.$primary;
   }
 
-  a {
-    display: inline-block;
-    width: 100%;
-    border-radius: $borderRadius;
-    color: $secondary;
-    background-color: $primary;
-    @include paddingBox;
-    text-align: center;
+  .artist {
+    margin-block-start: abstracts.$margin * -2;
   }
 
-  div {
-    // width: 100% * $large;
-    // margin-right: $margin;
-    // float: left;
+
+
+  @media screen and (min-width: 36rem) {
+    .image-description-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: abstracts.$padding;
+      margin-block-end: abstracts.$margin;
+    }
+
+    .description {
+      margin-block-start: 0;
+    }
+  }
+
+  .image-link-container {
+    max-width: 500px;
+
+    .image {
+      margin-block-end: abstracts.$margin;
+      border-radius: abstracts.$borderRadius;
+    }
+
+    a {
+      display: block;
+      border-radius: abstracts.$borderRadius;
+      font-weight: 600;
+      color: abstracts.$secondary;
+      background-color: abstracts.$primary;
+      @include abstracts.paddingBox;
+      text-align: center;
+    }
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid abstracts.$neutral;
   }
 }

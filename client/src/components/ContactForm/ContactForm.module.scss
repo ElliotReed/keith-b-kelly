@@ -1,25 +1,25 @@
-@import "../../styles/base.scss";
+@use "../../styles/abstracts";
 
 .form-wrapper {
-  // margin: $margin;
+  // margin: abstracts.$margin;
   width: 100%;
   // @include boxShadow;
-  border-radius: $borderRadius;
-  // @include gradient($neutral);
-  // padding: $padding;
-  color: $neutral;
+  border-radius: abstracts.$borderRadius;
+  // @include gradient(abstracts.$neutral);
+  // padding: abstracts.$padding;
+  color: abstracts.$neutral;
 
   & h1 {
-    margin: 0 0 $margin 0;
+    margin: 0 0 abstracts.$margin 0;
     font-weight: bold;
-    color: $primary;
+    color: abstracts.$primary;
   }
 }
 
 form {
   & label {
     display: block;
-    padding: $padding 0 0 0;
+    padding: abstracts.$padding 0 0 0;
 
     & span {
       &::after {
@@ -30,40 +30,40 @@ form {
 
   & input,
   textarea {
-    color: $secondary;
+    color: abstracts.$secondary;
     font-size: 1rem;
     width: 100%;
     height: 1em;
-    border-radius: $borderRadius;
-    background-color: $white;
-    padding: $padding;
+    border-radius: abstracts.$borderRadius;
+    background-color: abstracts.$white;
+    padding: abstracts.$padding;
     outline: none;
-    // box-shadow: 1px 1px 2px $secondary inset;
+    // box-shadow: 1px 1px 2px abstracts.$secondary inset;
 
     &:focus,
     :active {
       // border: 1px solid;
-      // box-shadow: 0 0 3px rgba($secondary, 0.5), 1px 1px 2px $secondary inset;
+      // box-shadow: 0 0 3px rgba(abstracts.$secondary, 0.5), 1px 1px 2px abstracts.$secondary inset;
     }
 
     &[type="submit"] {
       border: none;
       height: 3em;
-      margin-top: $margin;
-      // @include gradient($primary);
-      background-color: $primary;
-      color: $black;
-      // text-shadow: 2px 2px 0px darken($neutral, 60);
-      // box-shadow: 4px 4px 2px lighten($primary, 20) inset, 4px 4px 2px darken($primary, 20);
+      margin-top: abstracts.$margin;
+      // @include abstracts.gradient(abstracts.$primary);
+      background-color: abstracts.$primary;
+      color: abstracts.$black;
+      // text-shadow: 2px 2px 0px darken(abstracts.$neutral, 60);
+      // box-shadow: 4px 4px 2px lighten(abstracts.$primary, 20) inset, 4px 4px 2px darken(abstracts.$primary, 20);
 
       &:hover,
       :focus {
-        @include gradient(darken($primary, 6));
+        @include abstracts.gradient(darken(abstracts.$primary, 6));
         cursor: pointer;
       }
 
       &:active {
-        box-shadow: 3px 3px 2px lighten($primary, 20) inset, 3px 3px 2px darken($primary, 20);
+        box-shadow: 3px 3px 2px lighten(abstracts.$primary, 20) inset, 3px 3px 2px darken(abstracts.$primary, 20);
       }
     }
   }
@@ -75,15 +75,17 @@ form {
 }
 
 @keyframes autofill {
+
   0%,
   100% {
-    color: $secondary;
-    background: $white;
+    color: abstracts.$secondary;
+    background: abstracts.$white;
   }
 }
 
 input:-webkit-autofill {
-  animation-delay: 1s; /* Safari support - any positive time runs instantly */
+  animation-delay: 1s;
+  /* Safari support - any positive time runs instantly */
   animation-name: autofill;
   animation-fill-mode: both;
 }

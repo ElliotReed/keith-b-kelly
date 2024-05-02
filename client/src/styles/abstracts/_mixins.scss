@@ -1,0 +1,29 @@
+@use "colors";
+@use "variables";
+
+// mixins
+@mixin appFixedContainer {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@mixin boxShadow {
+  box-shadow: 0px 1px 1px rgba(colors.$black, 0.32), 0px 2px 2px rgba(colors.$black, 0.32), 0px 4px 4px rgba($black, 0.32),
+    0px 8px 8px rgba(colors.$black, 0.32), 0px 16px 16px rgba(colors.$black, 0.32);
+}
+
+@mixin gradient($color) {
+  background-image: linear-gradient(173deg,
+      lighten($color, 7) 0%,
+      lighten($color, 3) 10%,
+      $color 62%,
+      darken($color, 3) 90%,
+      darken($color, 7) 100%);
+}
+
+@mixin paddingBox {
+  padding: (variables.$padding * 0.618) variables.$padding;
+}

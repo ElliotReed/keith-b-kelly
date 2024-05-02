@@ -1,0 +1,41 @@
+@use "../../styles/abstracts";
+
+.off-canvas-container {
+  position: fixed;
+  inset: 0;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translate3d(100vw, -61.8vh, 0);
+  height: 100%;
+  width: 100%;
+  transition: all 0.2s ease-in;
+  background-color: abstracts.$primary;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.offscreen-nav-wrapper {
+  opacity: 0;
+  transition: all abstracts.$duration * 2 ease-in;
+  background-color: abstracts.$primary;
+}
+
+.open-nav {
+  transform: translate3d(0, 0, 0);
+
+  &.off-canvas-container {
+    transition: all 0.25s ease-out;
+  }
+
+  & .offscreen-nav-wrapper {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: abstracts.$tablet) {
+  .off-canvas-container {
+    display: none;
+  }
+}

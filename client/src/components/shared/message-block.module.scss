@@ -1,22 +1,22 @@
-@import "../../styles/base.scss";
+@use "../../styles/abstracts";
 
 .message {
-  @include paddingBox;
-  border-radius: $borderRadius;
-  border: $border;
+  @include abstracts.paddingBox;
+  border-radius: abstracts.$borderRadius;
+  border: abstracts.$border;
 }
 
 .error {
-  background-color: $errorColor;
-  color: $text_light;
+  background-color: abstracts.$errorColor;
+  color: abstracts.$text_light;
 }
 
 .warning {
-  background-color: $warningColor;
-  color: $text_dark;
+  background-color: abstracts.$warningColor;
+  color: abstracts.$text_dark;
 }
 
 .success {
-  background-color: $successColor;
-  color: $text_light;
+  background-color: abstracts.$successColor;
+  color: abstracts.$text_light;
 }

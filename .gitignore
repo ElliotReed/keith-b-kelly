@@ -1,4 +1,6 @@
-next
+hide
+
+config
 
 # Logs
 logs
@@ -69,3 +71,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+
+# My files
+.no_commit
