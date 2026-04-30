@@ -298,7 +298,7 @@ class TemplateEngine {
           <p style="color: ${
 				this.brandColor
 			}; height: auto; padding: 32px 0 0 0; font-family: sans-serif; font-size: 36px; line-height: 96px;">
-            <span style="font-weight: bold; text-transform: uppercase;">${this.templateOptions.title}</span>
+            <span style="font-weight: bold; text-transform: uppercase;">${this.title}</span>
           </p>
         </td>
       </tr>
@@ -323,11 +323,11 @@ class TemplateEngine {
       <tr
         style="background: ${this.brandColor};">
         <td
-        style="padding: 32px; font-family: sans-serif; font-size: 14px; line-height: 20px; color: ${this.textColor}; text-align: center;">
+        style="padding: 32px; font-family: sans-serif; font-size: 14px; line-height: 20px; color: ${this.bgcolor}; text-align: center;">
         <!-- //////////////////// -->
         <p>${this.footerText}<br>
         <!-- //////////////////// -->
-        <a href=${this.siteURL} style="color: ${this.brandColor}">${this.brand}</a></p>
+        <a href=${this.siteURL} style="color: ${this.bgcolor}">${this.brand}</a></p>
         </td>
       </tr>
       <!-- Footer : END -->
